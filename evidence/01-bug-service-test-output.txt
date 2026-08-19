@@ -1,0 +1,124 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --< jp.tonbiattack.debuglab:java-collectors-tomap-duplicate-key-lab >---
+[INFO] Building java-collectors-tomap-duplicate-key-lab 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-collectors-tomap-duplicate-key-lab ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/java-collectors-tomap-duplicate-key-lab/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:compile (default-compile) @ java-collectors-tomap-duplicate-key-lab ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ java-collectors-tomap-duplicate-key-lab ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/java-collectors-tomap-duplicate-key-lab/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:testCompile (default-testCompile) @ java-collectors-tomap-duplicate-key-lab ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.5.3:test (default-test) @ java-collectors-tomap-duplicate-key-lab ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running jp.tonbiattack.debuglab.pricing.PriceSnapshotServiceTest
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.063 s <<< FAILURE! -- in jp.tonbiattack.debuglab.pricing.PriceSnapshotServiceTest
+[ERROR] jp.tonbiattack.debuglab.pricing.PriceSnapshotServiceTest.duplicateSku_updatesUseTheLaterValueAndPublishTheNewSnapshot -- Time elapsed: 0.011 s <<< FAILURE!
+org.opentest4j.MultipleFailuresError: 
+Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: 同じSKUの後着更新があっても新しいスナップショットを公開する ==> expected: <PUBLISHED> but was: <REJECTED_DUPLICATE_SKU>
+	org.opentest4j.AssertionFailedError: 最終スナップショットには後着のSKU-01価格と新SKUを保存する ==> expected: <{SKU-01=120, SKU-02=200}> but was: <{SKU-01=80}>
+	org.opentest4j.AssertionFailedError: 初期公開と重複SKUを含む更新の二回を公開済みとして数える ==> expected: <2> but was: <1>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2944)
+	at jp.tonbiattack.debuglab.pricing.PriceSnapshotServiceTest.duplicateSku_updatesUseTheLaterValueAndPublishTheNewSnapshot(PriceSnapshotServiceTest.java:24)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: 同じSKUの後着更新があっても新しいスナップショットを公開する ==> expected: <PUBLISHED> but was: <REJECTED_DUPLICATE_SKU>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+		at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+		at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+		at jp.tonbiattack.debuglab.pricing.PriceSnapshotServiceTest.lambda$duplicateSku_updatesUseTheLaterValueAndPublishTheNewSnapshot$0(PriceSnapshotServiceTest.java:25)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 7 more
+	Suppressed: org.opentest4j.AssertionFailedError: 最終スナップショットには後着のSKU-01価格と新SKUを保存する ==> expected: <{SKU-01=120, SKU-02=200}> but was: <{SKU-01=80}>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+		at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+		at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+		at jp.tonbiattack.debuglab.pricing.PriceSnapshotServiceTest.lambda$duplicateSku_updatesUseTheLaterValueAndPublishTheNewSnapshot$1(PriceSnapshotServiceTest.java:27)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 7 more
+	Suppressed: org.opentest4j.AssertionFailedError: 初期公開と重複SKUを含む更新の二回を公開済みとして数える ==> expected: <2> but was: <1>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+		at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+		at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:563)
+		at jp.tonbiattack.debuglab.pricing.PriceSnapshotServiceTest.lambda$duplicateSku_updatesUseTheLaterValueAndPublishTheNewSnapshot$2(PriceSnapshotServiceTest.java:31)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 7 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   PriceSnapshotServiceTest.duplicateSku_updatesUseTheLaterValueAndPublishTheNewSnapshot:24 Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: 同じSKUの後着更新があっても新しいスナップショットを公開する ==> expected: <PUBLISHED> but was: <REJECTED_DUPLICATE_SKU>
+	org.opentest4j.AssertionFailedError: 最終スナップショットには後着のSKU-01価格と新SKUを保存する ==> expected: <{SKU-01=120, SKU-02=200}> but was: <{SKU-01=80}>
+	org.opentest4j.AssertionFailedError: 初期公開と重複SKUを含む更新の二回を公開済みとして数える ==> expected: <2> but was: <1>
+[INFO] 
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.869 s
+[INFO] Finished at: 2026-08-19T05:40:29Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project java-collectors-tomap-duplicate-key-lab: There are test failures.
+[ERROR] 
+[ERROR] See /home/ubuntu/java-collectors-tomap-duplicate-key-lab/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
