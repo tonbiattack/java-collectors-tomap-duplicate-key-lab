@@ -17,7 +17,8 @@ public class PriceSnapshotService {
             Map<String, Integer> nextPrices = updates.stream()
                     .collect(Collectors.toMap(
                             PriceUpdate::sku,
-                            PriceUpdate::priceYen));
+                            PriceUpdate::priceYen,
+                            (earlier, later) -> later));
 
             currentPrices = Map.copyOf(nextPrices);
             publishedVersion++;
