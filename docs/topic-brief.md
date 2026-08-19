@@ -33,7 +33,7 @@
 | 最終観測 | `currentPrices()`が`SKU-01=120`と`SKU-02=200`を持ち、`publishedVersion()`が`2`であることを別々に検証する。 |
 | 決定性 | 時刻、乱数、並行実行、`sleep`、外部I/Oを使わず、固定リストとインメモリ状態だけを使う。 |
 | 固定状態の検証コマンド | `mvn --batch-mode clean test` |
-| バグ状態の確認コマンド | `git checkout <bug-commit>`後に`mvn --batch-mode test -Dtest=PriceSnapshotServiceTest` |
+| バグ状態の確認コマンド | `git checkout 05c5fde`後に`mvn --batch-mode test -Dtest=PriceSnapshotServiceTest` |
 
 ## 仮説
 
